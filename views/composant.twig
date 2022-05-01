@@ -1,0 +1,29 @@
+
+<html>
+<body>
+<h1> {{ title }} </h1>
+<ul>
+    {% for c in cont %}
+         <li>{{ c.id }}</li>
+         <li>{{ c.Name }}</li>
+         <li>{{ c.Etat }}</li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>
+
+
+<form action="/composant" method="post" >
+    Name : <input type="text" id="Name" name="Name" placeholder=" Name">
+    Etat : <input type="text" id="Etat" name="Etat" placeholder="Etat">
+    <input type="submit" value="save">
+</form>
+
+
+
+<ul>
+    {% for c in cont %}
+        <li>{{c.Name}} - {{c.Etat}} - {{c._id}}  <a href="/composant/delete/{{c._id}}" class="btn">delete</a></li>
+    {%endfor %}
+</ul>

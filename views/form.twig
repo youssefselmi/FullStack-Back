@@ -1,0 +1,27 @@
+
+<html>
+<body>
+<h1> {{ title }} </h1>
+<ul>
+    {% for c in cont %}
+         <li>{{ c.FullName }}</li>
+         <li>{{ c.Phone }}</li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>
+
+
+<form action="/contact" method="post" >
+    FullName : <input type="text" id="FullName" name="FullName" placeholder="Full Name">
+    Phone : <input type="text" id="Phone" name="Phone" placeholder="Phone">
+    <input type="submit" value="save">
+</form>
+
+
+<ul>
+    {% for c in cont %}
+        <li>{{c.FullName}} - {{c.Phone}} - {{c._id}}  <a href="/contact/delete/{{c._id}}" class="btn">delete</a></li>
+    {%endfor %}
+</ul>

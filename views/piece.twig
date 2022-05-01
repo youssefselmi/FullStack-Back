@@ -1,0 +1,53 @@
+
+<html>
+<body>
+<h1> {{ title }} </h1>
+<ul>
+    {% for c in cont %}
+         <li>{{ c.id }}</li>
+         <li>{{ c.NamePiece }}</li>
+         <li>{{ c.Picture }}</li>
+         <li>{{ c.Price }}</li>
+         <li>{{ c.Gategorie }}</li>
+         <li>{{ c.Description }}</li>
+         <li>{{ c.Livraison }}</li>
+         <li>{{ c.DateFabricaion }}</li>
+
+
+    {% for cc in c.composants %}
+
+         <li>{{ cc.Name }}</li>
+         <li>{{ cc.Etat }}</li>
+    {% endfor %}
+
+
+
+
+    {% endfor %}
+</ul>
+</body>
+</html>
+
+
+<form action="/piece" method="post" >
+    NamePiece : <input type="text" id="NamePiece" name="NamePiece" placeholder=" NamePiece">
+    Picture : <input type="text" id="Picture" name="Picture" placeholder="Picture">
+    Price : <input type="Number" id="Price" name="Price" placeholder="Price">
+    Gategorie : <input type="text" id="Gategorie" name="Gategorie" placeholder="Gategorie">
+    Description : <input type="text" id="Description" name="Description" placeholder="Description">
+    Livraison : <input type="text" id="Livraison" name="Livraison" placeholder="Livraison">
+    DateFabricaion : <input type="Date" id="DateFabricaion" name="DateFabricaion" placeholder="DateFabricaion">
+
+
+
+
+
+    <input type="submit" value="save">
+</form>
+
+
+<ul>
+    {% for c in cont %}
+        <li>{{c.NamePiece}} - {{c.Price}} - {{c._id}}  <a href="/piece/delete/{{c._id}}" class="btn">delete</a></li>
+    {%endfor %}
+</ul>
